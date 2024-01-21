@@ -15,16 +15,28 @@ export const viewport = {
 }
 
 export const metadata = {
-	metadataBase: new URL(process.env.URL),
-	manifest: '/manifest.json',
+
+	metadataBase: new URL('http://localhost:3000'),
 	title: {
 		default: 'LinkList',
 		template: '%s - LinkList'
 	},
 	description: 'Everything you are. In one, simple link in bio.',
-	twitter: {
-		card: 'summary_large_image'
+	openGraph: {
+		title: 'LinkList',
+		description: 'Everything you are. In one, simple link in bio.',
+		image: '/opengraph-image.jpg',
+		url: 'http://localhost:3000',
+		siteName: 'LinkList',
 	},
+	twitter: {
+		card: 'summary_large_image',
+		site: '@eMartiiin94',
+		title: 'LinkList',
+		description: 'Everything you are. In one, simple link in bio.',
+		image: '/opengraph-image.jpg'
+	},
+	manifest: '/manifest.json',
 	icons: [
 		{ rel: "apple-touch-icon", url: "images/maskable_icon_x128.png" },
 		{ rel: "icon", url: "images/maskable_icon_x128.png" },

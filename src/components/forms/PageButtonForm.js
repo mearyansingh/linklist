@@ -91,7 +91,8 @@ function PageButtonForm({ page, user }) {
 										className="btn btn-secondary"
 										type="button"
 										onClick={() => removeButton(btn)}
-										role="button"
+										id={btn?.key}
+										aria-label={`Remove ${btn?.key}`}
 									>
 										<i className="bi bi-trash3"></i>
 									</button>

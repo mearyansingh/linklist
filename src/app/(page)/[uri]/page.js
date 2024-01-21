@@ -105,6 +105,7 @@ async function PagePreview({ params }) {
 										role="button"
 										className='btn btn-dark rounded-circle p-4 d-block d-flex  align-items-center justify-content-center shadow-sm '
 										style={{ width: "30px", height: "30px" }}
+										aria-label={`${buttonKey}`}
 									>
 										<i className={`bi fs-4 ${icons[buttonKey]}`}></i>
 									</Link>
