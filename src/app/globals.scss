@@ -1,0 +1,192 @@
+/**All the style is handled by this file*/
+
+/* Scrollbar Styling **/
+$scrollbar-width: 7px;
+$scrollbar-height: 7px;
+$scrollbar-border-radius: 10px;
+$scrollbar-track-bg-color: hsla(0, 0%, 87%, 0.75);
+$scrollbar-thumb-bg-color: rgba(0, 0, 0, 0.18);
+
+.custom-scrollbar {
+	&::-webkit-scrollbar {
+		height: $scrollbar-height;
+		width: $scrollbar-width;
+	}
+
+	&::-webkit-scrollbar-track {
+		border-radius: $scrollbar-border-radius;
+		background-color: $scrollbar-track-bg-color;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: $scrollbar-border-radius;
+		background-color: $scrollbar-thumb-bg-color;
+	}
+
+	scrollbar-color: $scrollbar-thumb-bg-color $scrollbar-track-bg-color;
+	scrollbar-width: thin;
+	-webkit-overflow-scrolling: touch;
+}
+
+//-------------------------------//
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-webkit-overflow-scrolling: touch;
+	// background-color: $body-bg;
+	// #f0f5f9 #cdcfd959
+	background-color: #f0f5f9;
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 100%;
+	@extend .custom-scrollbar;
+}
+
+$enable-negative-margins: true !default;
+
+a {
+	text-decoration: none !important;
+}
+
+.mt-n50 {
+	margin-top: -3.125rem;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.cursor-grabbing {
+	cursor: grabbing;
+}
+
+.fs-14px {
+	font-size: .875rem;
+}
+
+.fs-12px {
+	font-size: .75rem;
+}
+
+.custom-transition {
+	transition: 0.3s ease-in-out;
+}
+
+.dropdown {
+	&__hide-caret:after {
+		display: none !important;
+	}
+}
+
+/**Border style dashed*/
+.border-dashed {
+	border-style: dashed;
+}
+
+.min-h-400px {
+	min-height: 400px;
+}
+
+/** Hover state styling for nav-link **/
+.nav-pills .nav-link:not(.active):hover {
+	color: var(--bs-white);
+	background-color: var(--bs-gray-dark);
+	transition: 0.3s ease-in-out;
+}
+
+.radio-togglers {
+	background-color: var(--bs-gray-dark);
+	padding: 5px;
+	display: inline-block;
+	border-radius: 5px;
+}
+
+.radio-togglers span {
+	padding: 5px 15px;
+	color: var(--bs-gray-500);
+	display: block;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.radio-togglers input[type="radio"] {
+	display: none;
+}
+
+.radio-togglers input[type="radio"]:checked+span {
+	background-color: white;
+	color: var(--bs-dark);
+	font-weight: bold;
+}
+
+.custom-label {
+	font-size: 0.875rem;
+	margin-bottom: .3125rem;
+	font-weight: 600;
+	opacity: 0.6;
+}
+
+/** Upload avatar image*/
+.upload-image {
+	width: 128px;
+	height: 128px;
+
+	.edit-btn {
+		width: 2.5rem;
+		height: 2.5rem;
+		right: -0.0625rem;
+	}
+}
+
+.sortable-ghost {
+	opacity: 0.6;
+	background-color: var(--bs-light);
+}
+
+.hover-text__primary {
+	&:hover * {
+		color: var(--bs-primary) !important;
+		transition: 0.3s ease-in-out;
+	}
+}
+
+.bg-custom:after {
+	content: 'Choose image to upload';
+	position: absolute;
+	top: .9375rem;
+	width: 100%;
+	height: 100%;
+	font-size: 1.75rem;
+	color: var(--bs-gray-500);
+	font-weight: bold;
+	text-align: center;
+}
+
+/* for About, Contact Pricing */
+.about-container,
+.pricing-container,
+.contact-container {
+	margin-top: 70px;
+}
+
+@media screen and (max-width: 446px) {
+
+	.about-container,
+	.pricing-container,
+	.contact-container {
+		margin-top: 110px;
+	}
+}
