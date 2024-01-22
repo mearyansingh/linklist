@@ -7,15 +7,22 @@ import { Page } from '@/models/Page'
 import { User } from '@/models/User';
 import { Event } from '@/models/Event';
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params, parent }) {
 	const { uri } = params
 	const userName = uri.slice(0, 1).toUpperCase() + uri.slice(1)
+
+	// optionally access and extend (rather than replace) parent metadata
+	// Check if parent and parent.openGraph are defined
+	const parentMetadata = await parent;
+	const previousImages = (parentMetadata && parentMetadata.openGraph) ? parentMetadata.openGraph.images || [] : [];
 
 	return {
 		title: {
 			absolute: `${userName} - LinkList`
 		},
-		metadataBase: new URL(process.env.URL),
+		openGraph: {
+			images: ['https://aryan-linklist.vercel.app/opengraph-image.jpg', ...previousImages],
+		},
 	}
 }
 

@@ -1,5 +1,4 @@
 export const metadata = {
-   metadataBase: new URL(process.env.URL),
    title: 'Contact',
 }
 

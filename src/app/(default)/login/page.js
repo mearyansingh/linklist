@@ -3,7 +3,6 @@
 import LoginWithGoogle from '@/components/buttons/LoginWithGoogle'
 
 export const metadata = {
-   metadataBase: new URL(process.env.URL),
    title: 'Sign In',
 }
 

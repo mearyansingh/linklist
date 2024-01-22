@@ -11,7 +11,6 @@ import { Event } from '@/models/Event'
 import { Page } from '@/models/Page'
 
 export const metadata = {
-	metadataBase: new URL(process.env.URL),
 	title: 'Analytics',
 }
 

@@ -13,7 +13,6 @@ import PageLinksForm from '@/components/forms/PageLinksForm'
 
 export const metadata = {
 	title: 'My Page',
-	metadataBase: new URL(process.env.URL),
 }
 
 async function AccountPage({ searchParams }) {
