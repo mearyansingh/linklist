@@ -52,7 +52,6 @@ export default async function AppLayout({ children }) {
 	}
 
 	mongoose.connect(process.env.MONGODB_URI);
-
 	const page = await Page.findOne({ owner: session?.user?.email })
 
 	return (
