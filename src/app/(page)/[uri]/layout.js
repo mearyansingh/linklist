@@ -17,7 +17,7 @@ export const viewport = {
 
 export const metadata = {
 	manifest: '/manifest.json',
-	metadataBase: new URL(process.env.VERCEL_PUBLIC_BASE_URL),
+	metadataBase: new URL('https://linklist-app.vercel.app'),
 	title: {
 		default: 'LinkList',
 		template: '%s - LinkList'
