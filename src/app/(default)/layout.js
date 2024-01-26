@@ -16,7 +16,7 @@ export const viewport = {
 
 export const metadata = {
 	manifest: '/manifest.json',
-	metadataBase: new URL(`${process.env.VERCEL_PUBLIC_BASE_URL}`),
+	metadataBase: new URL(process.env.VERCEL_PUBLIC_BASE_URL),
 	title: {
 		default: 'LinkList',
 		template: '%s - LinkList'
@@ -30,9 +30,7 @@ export const metadata = {
 		card: 'summary_large_image',
 	},
 	icons: [
-		{
-			rel: "apple-touch-icon", url: `${process.env.VERCEL_PUBLIC_BASE_URL}/images/maskable_icon_x128.png`
-		},
+		{ rel: "apple-touch-icon", url: `${process.env.VERCEL_PUBLIC_BASE_URL}/images/maskable_icon_x128.png` },
 		{ rel: "icon", url: `${process.env.VERCEL_PUBLIC_BASE_URL}/images/maskable_icon_x128.png` },
 	],
 }

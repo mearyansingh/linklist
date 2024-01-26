@@ -14,8 +14,6 @@ async function LoginPage() {
 
    const session = await getServerSession(authOptions)
 
-   console.log(session, "session..")
-
    if (session) {
       return redirect('/')
    }
