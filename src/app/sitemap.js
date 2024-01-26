@@ -11,7 +11,6 @@ async function sitemap() {
       lastModified: new Date(updatedAt)
    }))
 
-
    return [
       ...pageEntries
    ]

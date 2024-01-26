@@ -7,7 +7,7 @@ function robots() {
             disallow: ['/analytics'],
          },
       ],
-      sitemap: `${process.env.VERCEL_PUBLIC_BASE_URL}/sitemap.xml`,
+      sitemap: 'https://linklist-app.vercel.app/sitemap.xml',
    }
 }
 
