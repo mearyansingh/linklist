@@ -4,7 +4,7 @@ function robots() {
          {
             userAgent: '*',
             allow: '/',
-            disallow: ['/account', '/analytics'],
+            disallow: ['/analytics'],
          },
       ],
       sitemap: `${process.env.VERCEL_PUBLIC_BASE_URL}/sitemap.xml`,
