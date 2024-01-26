@@ -1,9 +1,12 @@
 'use client'
 /**This is a client component */
 /**Chart component:: This component handles the views chart */
+import { Suspense } from 'react'
 import { addDays, differenceInDays, formatISO9075, parseISO } from "date-fns";
 import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis, ResponsiveContainer } from 'recharts'
 import ListEmptyPlaceholder from './emptyPlaceholder/ListEmptyPlaceholder';
+import SpinnerLoader from '@/components/loaders/SpinnerLoader'
+
 
 function Charts({ data }) {
 	// console.log(data, "data")
@@ -43,22 +46,20 @@ function Charts({ data }) {
 	});
 
 	return (
-		<>
-			<ResponsiveContainer width={'100%'} height={300}>
-				<LineChart
-					width={730}
-					height={300}
-					data={dataWithoutGaps}
-					margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-				>
-					<CartesianGrid horizontal={false} strokeWidth={2} stroke='#f5f5f5' />
-					<XAxis dataKey="date" axisLine={false} tickLine={false} tickMargin={10} tick={{ fill: '#aaa' }} />
-					<YAxis axisLine={false} tickLine={false} tickMargin={10} tick={{ fill: '#aaa' }} />
-					<Tooltip />
-					<Line type="monotone" dataKey={xLabelKey} stroke='#0d6efd' strokeWidth={5} />
-				</LineChart>
-			</ResponsiveContainer>
-		</>
+		<ResponsiveContainer width={'100%'} height={300}>
+			<LineChart
+				width={730}
+				height={300}
+				data={dataWithoutGaps}
+				margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+			>
+				<CartesianGrid horizontal={false} strokeWidth={2} stroke='#f5f5f5' />
+				<XAxis dataKey="date" axisLine={false} tickLine={false} tickMargin={10} tick={{ fill: '#aaa' }} />
+				<YAxis axisLine={false} tickLine={false} tickMargin={10} tick={{ fill: '#aaa' }} />
+				<Tooltip />
+				<Line type="monotone" dataKey={xLabelKey} stroke='#0d6efd' strokeWidth={5} />
+			</LineChart>
+		</ResponsiveContainer>
 	)
 }
 

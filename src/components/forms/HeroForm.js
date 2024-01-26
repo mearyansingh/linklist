@@ -12,7 +12,7 @@ function HeroForm({ user }) {
 
 	/**lifecycle method */
 	useEffect(() => {
-		if ('localStorage' in window && window.localStorage.getItem('desiredUsername')) {
+		if (window.localStorage && window.localStorage.getItem('desiredUsername')) {
 			const username = window.localStorage.getItem('desiredUsername');
 			window.localStorage.removeItem('desiredUsername');
 			redirect('/account?desiredUsername=' + username)

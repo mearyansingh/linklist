@@ -5,10 +5,18 @@ import { redirect } from 'next/navigation'
 import mongoose from 'mongoose'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
-import Charts from '@/components/Charts'
+// import Charts from '@/components/Charts'
 import ListEmptyPlaceholder from '@/components/emptyPlaceholder/ListEmptyPlaceholder'
 import { Event } from '@/models/Event'
 import { Page } from '@/models/Page'
+import SpinnerLoader from '@/components/loaders/SpinnerLoader'
+import dynamic from 'next/dynamic'
+import Loading from '@/components/loading'
+
+const Charts = dynamic(() => import('@/components/Charts'), {
+	ssr: false,
+	loading: () => <SpinnerLoader />
+})
 
 export const metadata = {
 	title: 'Analytics',

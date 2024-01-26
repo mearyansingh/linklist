@@ -8,21 +8,36 @@ import { User } from '@/models/User';
 import { Event } from '@/models/Event';
 
 export async function generateMetadata({ params, parent }) {
-	const { uri } = params
-	const userName = uri.slice(0, 1).toUpperCase() + uri.slice(1)
 
-	// optionally access and extend (rather than replace) parent metadata
-	// Check if parent and parent.openGraph are defined
-	const parentMetadata = await parent;
-	const previousImages = (parentMetadata && parentMetadata.openGraph) ? parentMetadata.openGraph.images || [] : [];
+	try {
+		const { uri } = params
+		const userName = uri.slice(0, 1).toUpperCase() + uri.slice(1)
+		// optionally access and extend (rather than replace) parent metadata
+		// Check if parent and parent.openGraph are defined
+		const parentMetadata = await parent;
+		const previousImages = (parentMetadata && parentMetadata.openGraph) ? parentMetadata.openGraph.images || [] : [];
 
-	return {
-		title: {
-			absolute: `${userName} - LinkList`
-		},
-		openGraph: {
-			images: ['https://aryan-linklist.vercel.app/opengraph-image.jpg', ...previousImages],
-		},
+		return {
+			title: {
+				absolute: `${userName} - LinkList`
+			},
+			openGraph: {
+				images: [`${process.env.VERCEL_PUBLIC_BASE_URL}/opengraph-image.jpg`, ...previousImages],
+				url: `${process.env.VERCEL_PUBLIC_BASE_URL}`,
+			},
+		}
+	} catch (error) {
+		console.error('Error generating metadata:', error);
+		// Handle the error as needed
+		return {
+			title: {
+				absolute: 'LinkList'
+			},
+			openGraph: {
+				images: [`${process.env.VERCEL_PUBLIC_BASE_URL}/opengraph-image.jpg`],
+				url: `${process.env.VERCEL_PUBLIC_BASE_URL}`,
+			},
+		};
 	}
 }
 
@@ -63,7 +78,6 @@ async function PagePreview({ params }) {
 
 	return (
 		<>
-			{/* {console.log(page, "page..")} */}
 			<div
 				className='card-img-top  position-relative d-flex flex-column gap-2 align-items-center justify-content-center h-25'
 				style={page?.bgType === 'color'
@@ -87,6 +101,7 @@ async function PagePreview({ params }) {
 						width={256}
 						height={256}
 						src={user?.image}
+						priority={true}
 					/>
 				</div>
 			</div>

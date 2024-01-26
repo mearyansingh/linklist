@@ -15,21 +15,25 @@ export const viewport = {
 }
 
 export const metadata = {
-	manifest: 'https://aryan-linklist.vercel.app/manifest.json',
-	metadataBase: new URL('https://aryan-linklist.vercel.app'),
+	manifest: '/manifest.json',
+	metadataBase: new URL(`${process.env.VERCEL_PUBLIC_BASE_URL}`),
 	title: {
 		default: 'LinkList',
 		template: '%s - LinkList'
 	},
 	description: 'Everything you are. In one, simple link in bio.',
-	image: 'https://aryan-linklist.vercel.app/opengraph-image.jpg',
-
+	image: `${process.env.VERCEL_PUBLIC_BASE_URL}/opengraph-image.jpg`,
+	openGraph: {
+		url: `${process.env.VERCEL_PUBLIC_BASE_URL}`,
+	},
 	twitter: {
 		card: 'summary_large_image',
 	},
 	icons: [
-		{ rel: "apple-touch-icon", url: "https://aryan-linklist.vercel.app/images/maskable_icon_x128.png" },
-		{ rel: "icon", url: "https://aryan-linklist.vercel.app/images/maskable_icon_x128.png" },
+		{
+			rel: "apple-touch-icon", url: `${process.env.VERCEL_PUBLIC_BASE_URL}/images/maskable_icon_x128.png`
+		},
+		{ rel: "icon", url: `${process.env.VERCEL_PUBLIC_BASE_URL}/images/maskable_icon_x128.png` },
 	],
 }
 

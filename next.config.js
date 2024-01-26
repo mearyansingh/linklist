@@ -2,7 +2,6 @@
 
 const withPWA = require("@ducanh2912/next-pwa").default({
    dest: "public",
-   scope: '/',
    register: true,
    sw: "sw.js",
    cacheOnFrontEndNav: true,
@@ -23,6 +22,12 @@ const nextConfig = {
          },
          {
             hostname: 's3.ap-south-1.amazonaws.com',
+         },
+         {
+            hostname: "plus.unsplash.com"
+         },
+         {
+            hostname: "images.unsplash.com"
          }
       ],
    },

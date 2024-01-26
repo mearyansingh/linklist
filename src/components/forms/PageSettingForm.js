@@ -117,6 +117,7 @@ function PageSettingForm({ page, user }) {
 								width={128}
 								height={128}
 								src={avatar}
+								priority={true}
 							/>
 						</div>
 						<label

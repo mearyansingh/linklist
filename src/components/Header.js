@@ -16,7 +16,7 @@ async function Header() {
 			<nav className="navbar navbar-dark bg-dark fixed-top">
 				<div className="container-fluid">
 					<Link href={'/'} className='navbar-brand fs-4 fw-bold d-flex align-items-center'>
-						<Image src="/images/maskable_icon.png" alt="brand_logo" width={32} height={32} className='img-fluid rounded-circle me-2' />LinkList
+						<Image src="/images/maskable_icon.png" priority={true} alt="brand_logo" width={32} height={32} className='img-fluid rounded-circle me-2' />LinkList
 					</Link>
 					<div className='d-flex align-items-center flex-grow-1 justify-content-sm-end justify-content-between gap-3'>
 						{!!session && (
@@ -28,6 +28,7 @@ async function Header() {
 										width={32}
 										height={32}
 										className="img-fluid rounded-circle me-2"
+										priority={true}
 									/>
 									<em>Hi&#128075;,</em>&nbsp;&nbsp;<strong>{session?.user?.name}</strong>
 								</Link>
@@ -54,52 +55,31 @@ async function Header() {
 					</div>
 					<div className="offcanvas offcanvas-end text-bg-dark" tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
 						<div className="offcanvas-header">
-							<div className='flex-grow-1 d-flex align-items-center'>
-								<Image src="/images/maskable_icon.png" alt="brand_logo" width={32} height={32} className='img-fluid rounded-circle me-2 ' />
+							<Link href='/' className='flex-grow-1 d-flex align-items-center h5'>
+								<Image priority={true} src="/images/maskable_icon.png" alt="brand_logo" width={32} height={32} className='img-fluid rounded-circle me-2 ' />
 								<h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">LinkList</h5>
-							</div>
+							</Link>
 							<button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 						</div>
 						<div className="offcanvas-body">
 							<ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+								<li className="nav-item">
+									<Link href={'/features'} className="nav-link">Features</Link>
+								</li>
+								<li className="nav-item">
+									<Link href={'/contact'} className="nav-link">Contact</Link>
+								</li>
 								<li className="nav-item">
 									<Link href='/about' className='nav-link'>About</Link>
 								</li>
 								<li className="nav-item">
 									<Link href='/pricing' className="nav-link">Pricing</Link>
 								</li>
-								<li className="nav-item">
-									<Link href={'/contact'} className="nav-link">Contact</Link>
-								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</nav>
-			{/* <div className='container d-flex align-items-center justify-content-between lh-1'>
-				<div className='d-flex align-items-center gap-5'>
-					<Link href={'/'} className='text-dark fs-4 fw-bold d-flex align-items-center'><i className="bi bi-link-45deg pe-1 fs-4"></i>LinkList</Link>
-					<nav className='d-flex gap-3'>
-						<Link href={'/about'} className='text-secondary'>About</Link>
-						<Link href={'/pricing'}>Pricing</Link>
-						<Link href={'/contact'}>Contact</Link>
-					</nav>
-				</div>
-				<nav className='d-flex align-items-center gap-3'>
-					{!!session && (
-						<>
-							<Link href='/account'>Hello, {session?.user?.name}</Link>
-							<LogoutButton />
-						</>
-					)}
-					{!session && (
-						<>
-							<Link href={'/login'}>Sign In</Link>
-							<Link href={'/register'}>Create Account</Link>
-						</>
-					)}
-				</nav>
-			</div> */}
 		</header>
 	)
 }

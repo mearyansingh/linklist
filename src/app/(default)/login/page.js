@@ -1,12 +1,24 @@
 /**This is a login page component */
 /**This component handles the logic of login with google */
+import { redirect } from 'next/navigation'
+import { getServerSession } from 'next-auth'
 import LoginWithGoogle from '@/components/buttons/LoginWithGoogle'
+import { authOptions } from '../../api/auth/[...nextauth]/route'
+
 
 export const metadata = {
    title: 'Sign In',
 }
 
-function LoginPage() {
+async function LoginPage() {
+
+   const session = await getServerSession(authOptions)
+
+   console.log(session, "session..")
+
+   if (session) {
+      return redirect('/')
+   }
 
    return (
       <section className='flex-grow-1 d-flex align-items-center justify-content-center'>

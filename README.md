@@ -1,3 +1,10 @@
+<p align="center"> 
+    <img src="/src/app/opengraph-image.jpg" align="center" height="150"></img>
+</p>
+
+<h1 align="center">LinkList</h1> 
+<h3 align="center">Everything you are. In one, simple link in bio.</h3>
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

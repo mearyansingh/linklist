@@ -22,21 +22,28 @@ export const viewport = {
 	themeColor: '#3d52d5',
 }
 
+console.log(process.env.VERCEL_PUBLIC_BASE_URL, "lll")
+
 export const metadata = {
-	manifest: 'https://aryan-linklist.vercel.app/manifest.json',
-	metadataBase: new URL('https://aryan-linklist.vercel.app'),
+	manifest: '/manifest.json',
+	metadataBase: new URL(`${process.env.VERCEL_PUBLIC_BASE_URL}`),
 	title: {
 		default: 'LinkList',
 		template: '%s - LinkList'
 	},
 	description: 'Everything you are. In one, simple link in bio.',
-	image: 'https://aryan-linklist.vercel.app/opengraph-image.jpg',
+	image: `${process.env.VERCEL_PUBLIC_BASE_URL}/opengraph-image.jpg`,
+	openGraph: {
+		url: `${process.env.VERCEL_PUBLIC_BASE_URL}`,
+	},
 	twitter: {
 		card: 'summary_large_image',
 	},
 	icons: [
-		{ rel: "apple-touch-icon", url: "https://aryan-linklist.vercel.app/images/maskable_icon_x128.png" },
-		{ rel: "icon", url: "https://aryan-linklist.vercel.app/images/maskable_icon_x128.png" },
+		{ rel: "apple-touch-icon", url: `${process.env.VERCEL_PUBLIC_BASE_URL}/images/maskable_icon_x128.png` },
+		{
+			rel: "icon", url: `${process.env.VERCEL_PUBLIC_BASE_URL}/images/maskable_icon_x128.png`
+		},
 	],
 }
 
@@ -63,8 +70,8 @@ export default async function AppLayout({ children }) {
 							<div className="offcanvas-body d-block p-0 h-100">
 								<div className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark h-100">
 									<div className='d-flex align-items-center justify-content-between '>
-										<Link href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none fs-4">
-											<Image src="/images/maskable_icon.png" alt='brand_logo' width={32} height={32} className="img-fluid rounded-circle me-2" />
+										<Link rel='preload' href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none fs-4">
+											<Image priority={true} src="/images/maskable_icon.png" alt='brand_logo' width={32} height={32} className="img-fluid rounded-circle me-2" />
 											LinkList
 										</Link>
 										<button
@@ -102,6 +109,7 @@ export default async function AppLayout({ children }) {
 												width={32}
 												height={32}
 												className="img-fluid rounded-circle me-2"
+												priority={true}
 											/>
 											<strong>{session?.user?.name}</strong>
 										</Link>
@@ -125,6 +133,7 @@ export default async function AppLayout({ children }) {
 								data-bs-toggle="offcanvas"
 								data-bs-target="#offcanvasResponsive"
 								aria-controls="offcanvasResponsive"
+								aria-label="Sidebar Toggler"
 							>
 								<i className="bi bi-justify fs-5"></i>
 							</button>

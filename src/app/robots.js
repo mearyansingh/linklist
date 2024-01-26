@@ -3,11 +3,11 @@ function robots() {
       rules: [
          {
             userAgent: '*',
-            allow: ['/'],
-            disallow: '/analytics',
+            allow: '/',
+            disallow: ['/account', '/analytics'],
          },
       ],
-      // sitemap: 'https://acme.com/sitemap.xml',
+      sitemap: `${process.env.VERCEL_PUBLIC_BASE_URL}/sitemap.xml`,
    }
 }
 
