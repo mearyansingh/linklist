@@ -22,18 +22,20 @@ function UsernameForm({ desiredUsername }) {
 
 	return (
 		<form className='mt-4' action={handleSubmit}>
-			<input
-				name="username"
-				type="text"
-				defaultValue={desiredUsername}
-				className={`form-control mb-2 ${taken && 'is-invalid '}`}
-				placeholder='Enter username'
-			/>
-			{taken &&
-				<div className="invalid-feedback">
-					This username is taken
-				</div>
-			}
+			<div className='mb-3'>
+				<input
+					name="username"
+					type="text"
+					defaultValue={desiredUsername}
+					className={`form-control ${taken && 'is-invalid '}`}
+					placeholder='Enter username'
+				/>
+				{taken &&
+					<div className="invalid-feedback">
+						This username is taken
+					</div>
+				}
+			</div>
 			<SubmitButton className='d-block mx-auto w-100' loadingTxt='Claiming...'>
 				Claim your Username<i className="ps-2 bi bi-arrow-right"></i>
 			</SubmitButton>

@@ -34,10 +34,14 @@ async function AccountPage({ searchParams }) {
 	mongoose.connect(process.env.MONGODB_URI);
 	const page = await Page.findOne({ owner: session?.user?.email });
 
-	const leanPage = cloneDeep(page?.toJSON())
-	leanPage._id = leanPage?._id.toString()
-
 	if (page) {
+		const leanPage = cloneDeep(page.toJSON());
+
+		// Check if _id exists before setting it
+		if (leanPage?._id) {
+			leanPage._id = leanPage._id.toString();
+		}
+
 		return (
 			<Fragment>
 				<PageSettingForm page={leanPage} user={session?.user} />

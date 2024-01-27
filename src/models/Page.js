@@ -6,7 +6,7 @@ const PageSchema = new Schema({
 	uri: { type: String, required: true, min: 1, unique: true },
 	owner: { type: String, required: true },
 	bgType: { type: String, default: 'color' },
-	bgColor: { type: String, default: '#000' },
+	bgColor: { type: String, default: '#000000' },
 	bgImage: { type: String, default: '' },
 	displayName: { type: String, default: '' },
 	location: { type: String, default: '' },
