@@ -54,7 +54,7 @@ async function AccountPage({ searchParams }) {
 	return (
 		<section className='flex-grow-1 d-flex align-items-center justify-content-center'>
 			<div className='container'>
-				<div className="col col-6 mx-auto">
+				<div className="col-12 col-lg-6 mx-auto">
 					<h1 className='fw-bold text-center'>Grab your username</h1>
 					<p className='text-center'>Choose your username</p>
 					<UsernameForm desiredUsername={desiredUsername} />
