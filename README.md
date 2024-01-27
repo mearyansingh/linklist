@@ -1,15 +1,11 @@
 <p align="center"> 
-    <img src="/src/app/opengraph-image.jpg" align="center" height="150"></img>
+    <a target="_blank" href="https://linklist-app.vercel.app/">
+        <img src="/src/app/opengraph-image.jpg" align="center" height="150"></img>
+    </a>
 </p>
 
 <h1 align="center">LinkList</h1> 
 <h3 align="center">Everything you are. In one, simple link in bio.</h3>
-
-<p align="center"> 
-    <a target="_blank" href="https://linklist-app.vercel.app/">
-    	<img src="/public/images/maskable_icon.png" align="center" height="150"></img> LinkList
-    </a>
-</p>
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
