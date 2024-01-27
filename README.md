@@ -7,7 +7,7 @@
 
 <p align="center"> 
     <a target="_blank" href="https://linklist-app.vercel.app/">
-    	<img src="images/maskable_icon.png" align="center" height="150"></img>
+    	<img src="/public/images/maskable_icon.png" align="center" height="150"></img>
     </a>
 </p>
 
