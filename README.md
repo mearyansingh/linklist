@@ -6,7 +6,7 @@
 <h3 align="center">Everything you are. In one, simple link in bio.</h3>
 
 <p align="center"> 
-    <img src="[linklist-dgudzs8wu-aryan-singhs-projects-94c4ae22.vercel.app](https://vercel.com/aryan-singhs-projects-94c4ae22/linklist/G1gehb77Z1FaKH2HGDv9jYAWrYbW)" align="center" height="150"></img>
+    <img src="https://linklist-dgudzs8wu-aryan-singhs-projects-94c4ae22.vercel.app/" align="center" height="150"></img>
 </p>
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
